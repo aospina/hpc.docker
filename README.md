@@ -19,7 +19,7 @@
 
 ## Iniciando a instalar el Cluster MPI con docker:
 
-    Usaremos [Docker Compose](https://docs.docker.com/compose/) para definir y ejecutar múltiples contenedores. 
+Usaremos [Docker Compose](https://docs.docker.com/compose/) para definir y ejecutar múltiples contenedores. 
  
 ## Crear el archivo `docker-compose.yml`
  
@@ -60,11 +60,10 @@ chmod 400 ssh/id_rsa.mpi
 ssh -i ssh/id_rsa.mpi  mpirun@MPI_HEAD_IP
 ```
 
-Tenga en cuenta que si quieres cambiar tu código y recompilar que debes trabajar en la carpeta /compartido.  De lo contrario tendrá que copiar el binario a todos los nodos remotos:  MPI no transmite el binario, asume que que existe en todas las máquinas remotas.  ¡Diviértete! con tu cluster MPI con docker. 
+Tenga en cuenta que si quieres cambiar tu código y recompilar que debes trabajar en la carpeta /compartido.  De lo contrario tendrá que copiar el binario a todos los nodos remotos:  MPI no transmite el binario, asume que que existe en todas las máquinas remotas.  
+
+## Todo listo
+¡Diviértete! con tu cluster MPI con docker. 
 
 ## Créditos
 Gracias al trabajo de https://github.com/dispel4py/ by O. Weidner y R. Filgueira
-
-
-
-
