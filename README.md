@@ -38,7 +38,7 @@ mpi_node:
     volumes:
       - ./compartido:/compartido
 
-	```
+   ```
 Note que este archivo esta disponible en este git para su descarga.
  
 ## Construir el cluster:
