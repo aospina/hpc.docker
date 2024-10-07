@@ -1,0 +1,15 @@
+mpi_head:
+    build: .
+    ports: 
+      - "22"
+    links: 
+      - mpi_node
+    volumes:
+      - ./compartido:/compartido
+
+mpi_node:
+    build: .
+    volumes:
+      - ./compartido:/compartido
+
+
