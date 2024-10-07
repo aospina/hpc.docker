@@ -24,16 +24,19 @@ Usaremos [Docker Compose](https://docs.docker.com/compose/) para definir y ejecu
 ## Crear el archivo `docker-compose.yml`
  
    ```
-mpi_head:
+version: '2.4'
+
+services:
+  mpi_head:
     build: .
-    ports: 
-      - "22"
-    links: 
-      - mpi_node
+    ports:
+      - "2222:22"
     volumes:
       - ./compartido:/compartido
+    depends_on:
+      - mpi_node
 
-mpi_node:
+  mpi_node:
     build: .
     volumes:
       - ./compartido:/compartido
@@ -45,7 +48,7 @@ Note que este archivo esta disponible en este git para su descarga.
 
 Para un cluster con 3 nodos (`mpi_head` y 3 `mpi_node`) será:
 
-    docker-compose scale mpi_head=1 mpi_node=3 
+    docker-compose up --scale mpi_node=3
 
 Una vez que esto haya terminado de ejecutarse, puedes ver con `docker ps -a` que tienes 4 contenedores docker ejecutándose.  Puede obtener las direcciones IP de todas estas máquinas usando
 
@@ -60,7 +63,7 @@ chmod 400 ssh/id_rsa.mpi
 ssh -i ssh/id_rsa.mpi  mpirun@MPI_HEAD_IP
 ```
 
-Tenga en cuenta que si quieres cambiar tu código y recompilar que debes trabajar en la carpeta /compartido.  De lo contrario tendrá que copiar el binario a todos los nodos remotos:  MPI no transmite el binario, asume que que existe en todas las máquinas remotas.  
+Tenga en cuenta que si quieres cambiar tu código y recompilar que debes trabajar en la carpeta /compartido y con el usuario *mpirun*.  De lo contrario tendrá que copiar el binario a todos los nodos remotos:  MPI no transmite el binario, asume que que existe en todas las máquinas remotas.  
 
 ## Todo listo
 ¡Diviértete! con tu cluster MPI con docker. 

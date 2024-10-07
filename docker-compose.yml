@@ -1,15 +1,16 @@
-mpi_head:
+version: '2.4'
+
+services:
+  mpi_head:
     build: .
-    ports: 
-      - "22"
-    links: 
+    ports:
+      - "2222:22"
+    volumes:
+      - ./compartido:/compartido
+    depends_on:
       - mpi_node
-    volumes:
-      - ./compartido:/compartido
 
-mpi_node:
+  mpi_node:
     build: .
     volumes:
       - ./compartido:/compartido
-
-
