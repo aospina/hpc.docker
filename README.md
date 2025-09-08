@@ -17,6 +17,7 @@
 
     sudo systemctl enable docker
     sudo systemctl start docker
+    sudo usermod -a -G docker ubuntu 
 
 ## Instalar docker-compose: https://docs.docker.com/compose/install/
 
