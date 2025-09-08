@@ -9,6 +9,15 @@
     sudo systemctl start docker
     sudo usermod -a -G docker ec2-user
 
+## Instalar docker en ubuntu:22.04
+    
+    sudo apt update
+    sudo apt install docker.io -y
+    sudo apt install docker-compose -y
+
+    sudo systemctl enable docker
+    sudo systemctl start docker
+
 ## Instalar docker-compose: https://docs.docker.com/compose/install/
 
     sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
