@@ -17,7 +17,7 @@
 
     sudo systemctl enable docker
     sudo systemctl start docker
-    sudo usermod -a -G docker ubuntu 
+    sudo usermod -a -G docker $USER 
 
 ## Instalar docker-compose: https://docs.docker.com/compose/install/
 
@@ -27,7 +27,7 @@
 
     exit
 
-## Instalar docker en ubuntu:24.04
+## Instalar docker y docker-compose en ubuntu:24.04
     
     sudo apt update
     sudo apt install docker.io -y
@@ -35,7 +35,7 @@
 
     sudo systemctl enable docker
     sudo systemctl start docker
-    sudo usermod -a -G docker ubuntu 
+    sudo usermod -a -G docker $USER 
     echo "alias docker-compose='docker compose'" >> ~/.bashrc
 
 
