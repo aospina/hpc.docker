@@ -27,6 +27,18 @@
 
     exit
 
+## Instalar docker en ubuntu:24.04
+    
+    sudo apt update
+    sudo apt install docker.io -y
+    sudo apt install docker-compose-plugin -y
+
+    sudo systemctl enable docker
+    sudo systemctl start docker
+    sudo usermod -a -G docker ubuntu 
+    echo "alias docker-compose='docker compose'" >> ~/.bashrc
+
+
 ## Iniciando a instalar el Cluster MPI con docker:
 
 Usaremos [Docker Compose](https://docs.docker.com/compose/) para definir y ejecutar múltiples contenedores. 
